@@ -1,0 +1,20 @@
+{
+  "key": "release-build_steam_v0.4.5.3",
+  "build_type": "배포 빌드",
+  "platform": "Steam",
+  "version": "v0.4.5.3",
+  "report_path": "release-build\\steam\\v0.4.5.3.html",
+  "summary": {
+    "pass": 450,
+    "fail": 1,
+    "block": 0,
+    "na": 0,
+    "norun": 131,
+    "total": 582,
+    "coverage": 99.78,
+    "critical_bugs": 1,
+    "major_bugs": 1,
+    "minor_bugs": 2,
+    "operability": "운영 불가"
+  }
+}

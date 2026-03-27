@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noise Canceler QA — 전체 대시보드</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',sans-serif;background:#f1f5f9;color:#1e293b;}
+.hero{background:#1e293b;color:#fff;padding:32px 40px;}
+.hero h1{font-size:1.6rem;margin-bottom:8px;}
+.hero .meta{color:#94a3b8;font-size:0.9rem;}
+.container{max-width:1200px;margin:0 auto;padding:24px;}
+.chart-box{background:#fff;border-radius:12px;padding:20px;box-shadow:0 1px 3px rgba(0,0,0,.08);margin-bottom:24px;}
+.chart-box h3{color:#475569;margin-bottom:12px;}
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08);}
+th{background:#f8fafc;padding:12px 16px;text-align:left;border-bottom:2px solid #e2e8f0;font-size:0.85rem;color:#475569;}
+td{padding:12px 16px;border-bottom:1px solid #f1f5f9;font-size:0.9rem;}
+tr:hover td{background:#f8fafc;}
+a{color:#2563eb;text-decoration:none;}
+a:hover{text-decoration:underline;}
+h2{font-size:1.1rem;color:#1e293b;margin:24px 0 12px;}
+</style>
+</head>
+<body>
+<div class="hero">
+  <h1>🎮 Noise Canceler — QA 전체 대시보드</h1>
+  <div class="meta">총 보고서 1개 &nbsp;|&nbsp; 최종 업데이트: 2026-03-27</div>
+</div>
+<div class="container">
+  <div class="chart-box">
+    <h3>TEST 빌드 커버리지 추이</h3>
+    <canvas id="trendChart" height="80"></canvas>
+  </div>
+  <h2>전체 보고서 목록</h2>
+  <table>
+    <thead><tr><th>버전</th><th>빌드 유형</th><th>커버리지</th><th>운영 가능</th><th>미해결 버그</th></tr></thead>
+    <tbody><tr>
+              <td><a href="release-build\steam\v0.4.5.3.html">v0.4.5.3</a></td>
+              <td>배포 빌드 / Steam</td>
+              <td>99.78%</td>
+              <td><span style="background:#dcfce7;color:#166534;padding:2px 8px;border-radius:4px;font-size:0.8rem;font-weight:600;">운영 가능</span></td>
+              <td>Critical: 0 / Major: 0 / Minor: 0</td>
+            </tr></tbody>
+  </table>
+</div>
+<script>
+new Chart(document.getElementById('trendChart').getContext('2d'), {
+  type: 'line',
+  data: {
+    labels: [],
+    datasets: [{
+      label: 'TEST 빌드 커버리지 (%)',
+      data: [],
+      borderColor: '#3b82f6',
+      backgroundColor: 'rgba(59,130,246,0.1)',
+      tension: 0.3,
+      fill: true,
+    }]
+  },
+  options: {scales: {y: {min: 0, max: 100}}, plugins: {legend: {display: false}}}
+});
+</script>
+</body>
+</html>
