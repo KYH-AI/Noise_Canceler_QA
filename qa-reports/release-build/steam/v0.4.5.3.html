@@ -71,6 +71,8 @@ body{font-family:'Segoe UI',sans-serif;background:#f1f5f9;color:#1e293b;}
 .bug-title-text{display:block;margin-top:4px;}
 .bts-link{color:#2563eb;text-decoration:none;font-weight:600;font-size:0.8rem;padding:1px 6px;border:1px solid #bfdbfe;border-radius:6px;background:#eff6ff;white-space:nowrap;}
 .bts-link:hover{background:#dbeafe;}
+.row-clickable{cursor:pointer;}
+.data-table tr.row-clickable:hover td{background:#fef9c3;}
 .bts-highlight{background:#fef9c3 !important;transition:background 0.5s;}
 .all-fail-bar{margin-bottom:12px;}
 .all-fail-btn{padding:6px 14px;border:1px solid #dc2626;border-radius:8px;background:#fff;cursor:pointer;font-size:0.85rem;color:#dc2626;font-weight:600;}
@@ -80,7 +82,7 @@ body{font-family:'Segoe UI',sans-serif;background:#f1f5f9;color:#1e293b;}
 <body>
 <div class="hero">
   <h1>🎮 Noise Canceler — QA 보고서</h1>
-  <div class="meta">배포 빌드 / Steam &nbsp;|&nbsp; v0.4.5.3 &nbsp;|&nbsp; 테스트 일자: 2026-04-01</div>
+  <div class="meta">배포 빌드 / Steam &nbsp;|&nbsp; v0.4.5.3 &nbsp;|&nbsp; 테스트 일자: 2026-04-02</div>
   <div class="badges">
     <div class="badge badge-critical">Critical: 1건</div>
     <div class="badge badge-block">Block: 0건</div>
@@ -2386,14 +2388,14 @@ INPUT_OFFSET</td>
                   <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr></tbody></table></div></div><div class="subtab-content" id="cl-4" style="display:none"><div class="filter-bar"><button class="filter-btn active" onclick="filterResult('cl', 'all', this)">전체</button><button class="filter-btn" onclick="filterResult('cl', 'Fail', this)">Fail만 보기</button></div><div class="table-wrap"><table class="data-table"><thead><tr><th>No.</th><th>대분류</th><th>중분류</th><th>소분류</th><th>테스트항목</th><th>결과</th><th>BTS</th><th>비고</th></tr></thead><tbody><tr data-result="Fail">
+                </tr></tbody></table></div></div><div class="subtab-content" id="cl-4" style="display:none"><div class="filter-bar"><button class="filter-btn active" onclick="filterResult('cl', 'all', this)">전체</button><button class="filter-btn" onclick="filterResult('cl', 'Fail', this)">Fail만 보기</button></div><div class="table-wrap"><table class="data-table"><thead><tr><th>No.</th><th>대분류</th><th>중분류</th><th>소분류</th><th>테스트항목</th><th>결과</th><th>BTS</th><th>비고</th></tr></thead><tbody><tr data-result="Fail" class="row-clickable" onclick="goToBts('BTS_0013')">
                   <td>CL_006_001</td>
                   <td>챕터 선택 화면</td>
                   <td>실행</td>
                   <td>실행</td>
                   <td>[ 메인 화면 ]에서 [ 게임 시작 ]과 상호작용 시 챕터 선택 화면으로 진입 확인</td>
                   <td class="result-fail">Fail</td>
-                  <td><a class="bts-link" href="javascript:void(0)" onclick="goToBts('BTS_0013')">BTS_0013</a></td>
+                  <td><a class="bts-link" href="javascript:void(0)" onclick="event.stopPropagation();goToBts('BTS_0013')">BTS_0013</a></td>
                   <td></td>
                 </tr><tr data-result="Pass">
                   <td>CL_006_002</td>
@@ -8907,14 +8909,14 @@ INPUT_OFFSET</td>
                   <td></td>
                   <td></td>
                 </tr></tbody></table></div></div></div>
-    <div id="cl-all-fail" style="display:none"><div class="table-wrap"><table class="data-table"><thead><tr><th>No.</th><th>대분류</th><th>중분류</th><th>소분류</th><th>테스트항목</th><th>결과</th><th>BTS</th><th>비고</th></tr></thead><tbody><tr data-result="Fail">
+    <div id="cl-all-fail" style="display:none"><div class="table-wrap"><table class="data-table"><thead><tr><th>No.</th><th>대분류</th><th>중분류</th><th>소분류</th><th>테스트항목</th><th>결과</th><th>BTS</th><th>비고</th></tr></thead><tbody><tr data-result="Fail" class="row-clickable" onclick="goToBts('BTS_0013')">
                   <td>CL_006_001</td>
                   <td>챕터 선택 화면</td>
                   <td>실행</td>
                   <td>실행</td>
                   <td>[ 메인 화면 ]에서 [ 게임 시작 ]과 상호작용 시 챕터 선택 화면으로 진입 확인</td>
                   <td class="result-fail">Fail</td>
-                  <td><a class="bts-link" href="javascript:void(0)" onclick="goToBts('BTS_0013')">BTS_0013</a></td>
+                  <td><a class="bts-link" href="javascript:void(0)" onclick="event.stopPropagation();goToBts('BTS_0013')">BTS_0013</a></td>
                   <td></td>
                 </tr></tbody></table></div></div>
   </div>
