@@ -87,7 +87,7 @@ body{font-family:'Segoe UI',sans-serif;background:#f1f5f9;color:#1e293b;}
     <div class="badge badge-critical">Critical: 1건</div>
     <div class="badge badge-block">Block: 0건</div>
     <div class="badge badge-major">Major: 1건</div>
-    <div class="badge badge-norun">미실시: 13.2% (127건)</div>
+    <div class="badge badge-norun">미실시: 0.1% (1건)</div>
   </div>
 </div>
 
@@ -102,11 +102,11 @@ body{font-family:'Segoe UI',sans-serif;background:#f1f5f9;color:#1e293b;}
   <!-- 요약 대시보드 -->
   <div class="tab-pane active" id="tab-summary">
     <div class="cards">
-      <div class="card card-pass"><div class="card-num">831</div><div class="card-label">Pass</div></div>
+      <div class="card card-pass"><div class="card-num">957</div><div class="card-label">Pass</div></div>
       <div class="card card-fail"><div class="card-num">1</div><div class="card-label">Fail</div></div>
       <div class="card card-block"><div class="card-num">0</div><div class="card-label">Block</div></div>
-      <div class="card card-norun"><div class="card-num">127</div><div class="card-label">NoRun</div></div>
-      <div class="card card-coverage"><div class="card-num">99.88%</div><div class="card-label">커버리지</div></div>
+      <div class="card card-norun"><div class="card-num">1</div><div class="card-label">NoRun</div></div>
+      <div class="card card-coverage"><div class="card-num">99.9%</div><div class="card-label">커버리지</div></div>
     </div>
     <div class="charts">
       <div class="chart-box"><h3>카테고리별 커버리지</h3><canvas id="coverageChart"></canvas></div>
@@ -117,7 +117,7 @@ body{font-family:'Segoe UI',sans-serif;background:#f1f5f9;color:#1e293b;}
   <!-- CL 상세 -->
   <div class="tab-pane" id="tab-cl">
     <div class="all-fail-bar"><button class="all-fail-btn" id="cl-all-fail-btn" onclick="toggleAllFail('cl')">전체 Fail만 보기</button></div>
-    <div id="cl-subtab-view"><div class="sheet-stat-bar" id="cl-stat-bar" style="display:none"><div><div class="ss-label">Pass</div><div class="ss-val ss-pass" id="cl-sb-pass">-</div></div><div><div class="ss-label">Pass%</div><div class="ss-val ss-cov" id="cl-sb-cov">-</div></div><div><div class="ss-label">Fail</div><div class="ss-val ss-fail" id="cl-sb-fail">-</div></div><div><div class="ss-label">Fail%</div><div class="ss-val ss-fail" id="cl-sb-failpct">-</div></div><div><div class="ss-label">NoRun</div><div class="ss-val ss-norun" id="cl-sb-norun">-</div></div></div><script>var clStats=[{"pass":40,"fail":0,"norun":0,"total":40,"cov":100.0,"failPct":0.0},{"pass":131,"fail":0,"norun":0,"total":131,"cov":100.0,"failPct":0.0},{"pass":20,"fail":0,"norun":0,"total":20,"cov":100.0,"failPct":0.0},{"pass":53,"fail":0,"norun":0,"total":53,"cov":100.0,"failPct":0.0},{"pass":210,"fail":1,"norun":127,"total":338,"cov":99.53,"failPct":0.47},{"pass":15,"fail":0,"norun":0,"total":15,"cov":100.0,"failPct":0.0},{"pass":90,"fail":0,"norun":0,"total":90,"cov":100.0,"failPct":0.0},{"pass":84,"fail":0,"norun":0,"total":84,"cov":100.0,"failPct":0.0},{"pass":95,"fail":0,"norun":0,"total":95,"cov":100.0,"failPct":0.0},{"pass":93,"fail":0,"norun":0,"total":93,"cov":100.0,"failPct":0.0}];function updateClStatBar(idx){var s=clStats[idx];if(!s)return;document.getElementById("cl-sb-pass").textContent=s.pass;document.getElementById("cl-sb-cov").textContent=s.cov+"%";document.getElementById("cl-sb-fail").textContent=s.fail;document.getElementById("cl-sb-failpct").textContent=s.failPct+"%";document.getElementById("cl-sb-norun").textContent=s.norun;}</script><div class="subtabs"><button class="subtab-btn active" onclick="switchSubtab('cl', 0)" data-prefix="cl" data-idx="0">CL_001_메인화면<span class="sb-cov">100.0%</span></button><button class="subtab-btn " onclick="switchSubtab('cl', 1)" data-prefix="cl" data-idx="1">CL_002_설정/일시정지<span class="sb-cov">100.0%</span></button><button class="subtab-btn " onclick="switchSubtab('cl', 2)" data-prefix="cl" data-idx="2">CL_003_크레딧<span class="sb-cov">100.0%</span></button><button class="subtab-btn " onclick="switchSubtab('cl', 3)" data-prefix="cl" data-idx="3">CL_004_오프셋 보정 화면<span class="sb-cov">100.0%</span></button><button class="subtab-btn " onclick="switchSubtab('cl', 4)" data-prefix="cl" data-idx="4">CL_006_챕터선택_에피소드선택_화면<span class="sb-cov">99.53%</span><span class="sb-fail">1F</span></button><button class="subtab-btn " onclick="switchSubtab('cl', 5)" data-prefix="cl" data-idx="5">CL_007_게임결과 화면<span class="sb-cov">100.0%</span></button><button class="subtab-btn " onclick="switchSubtab('cl', 6)" data-prefix="cl" data-idx="6">CL_100_챕터1<span class="sb-cov">100.0%</span></button><button class="subtab-btn " onclick="switchSubtab('cl', 7)" data-prefix="cl" data-idx="7">CL_101_챕터2<span class="sb-cov">100.0%</span></button><button class="subtab-btn " onclick="switchSubtab('cl', 8)" data-prefix="cl" data-idx="8">CL_102_챕터3<span class="sb-cov">100.0%</span></button><button class="subtab-btn " onclick="switchSubtab('cl', 9)" data-prefix="cl" data-idx="9">CL_103_챕터4<span class="sb-cov">100.0%</span></button></div><div class="subtab-content" id="cl-0" style="display:block"><div class="filter-bar"><button class="filter-btn active" onclick="filterResult('cl', 'all', this)">전체</button><button class="filter-btn" onclick="filterResult('cl', 'Fail', this)">Fail만 보기</button></div><div class="table-wrap"><table class="data-table"><thead><tr><th>No.</th><th>대분류</th><th>중분류</th><th>소분류</th><th>테스트항목</th><th>결과</th><th>BTS</th><th>비고</th></tr></thead><tbody><tr data-result="Pass">
+    <div id="cl-subtab-view"><div class="sheet-stat-bar" id="cl-stat-bar" style="display:none"><div><div class="ss-label">Pass</div><div class="ss-val ss-pass" id="cl-sb-pass">-</div></div><div><div class="ss-label">Pass%</div><div class="ss-val ss-cov" id="cl-sb-cov">-</div></div><div><div class="ss-label">Fail</div><div class="ss-val ss-fail" id="cl-sb-fail">-</div></div><div><div class="ss-label">Fail%</div><div class="ss-val ss-fail" id="cl-sb-failpct">-</div></div><div><div class="ss-label">NoRun</div><div class="ss-val ss-norun" id="cl-sb-norun">-</div></div></div><script>var clStats=[{"pass":40,"fail":0,"norun":0,"total":40,"cov":100.0,"failPct":0.0},{"pass":131,"fail":0,"norun":0,"total":131,"cov":100.0,"failPct":0.0},{"pass":20,"fail":0,"norun":0,"total":20,"cov":100.0,"failPct":0.0},{"pass":53,"fail":0,"norun":0,"total":53,"cov":100.0,"failPct":0.0},{"pass":336,"fail":1,"norun":1,"total":338,"cov":99.7,"failPct":0.3},{"pass":15,"fail":0,"norun":0,"total":15,"cov":100.0,"failPct":0.0},{"pass":90,"fail":0,"norun":0,"total":90,"cov":100.0,"failPct":0.0},{"pass":84,"fail":0,"norun":0,"total":84,"cov":100.0,"failPct":0.0},{"pass":95,"fail":0,"norun":0,"total":95,"cov":100.0,"failPct":0.0},{"pass":93,"fail":0,"norun":0,"total":93,"cov":100.0,"failPct":0.0}];function updateClStatBar(idx){var s=clStats[idx];if(!s)return;document.getElementById("cl-sb-pass").textContent=s.pass;document.getElementById("cl-sb-cov").textContent=s.cov+"%";document.getElementById("cl-sb-fail").textContent=s.fail;document.getElementById("cl-sb-failpct").textContent=s.failPct+"%";document.getElementById("cl-sb-norun").textContent=s.norun;}</script><div class="subtabs"><button class="subtab-btn active" onclick="switchSubtab('cl', 0)" data-prefix="cl" data-idx="0">CL_001_메인화면<span class="sb-cov">100.0%</span></button><button class="subtab-btn " onclick="switchSubtab('cl', 1)" data-prefix="cl" data-idx="1">CL_002_설정/일시정지<span class="sb-cov">100.0%</span></button><button class="subtab-btn " onclick="switchSubtab('cl', 2)" data-prefix="cl" data-idx="2">CL_003_크레딧<span class="sb-cov">100.0%</span></button><button class="subtab-btn " onclick="switchSubtab('cl', 3)" data-prefix="cl" data-idx="3">CL_004_오프셋 보정 화면<span class="sb-cov">100.0%</span></button><button class="subtab-btn " onclick="switchSubtab('cl', 4)" data-prefix="cl" data-idx="4">CL_006_챕터선택_에피소드선택_화면<span class="sb-cov">99.7%</span><span class="sb-fail">1F</span></button><button class="subtab-btn " onclick="switchSubtab('cl', 5)" data-prefix="cl" data-idx="5">CL_007_게임결과 화면<span class="sb-cov">100.0%</span></button><button class="subtab-btn " onclick="switchSubtab('cl', 6)" data-prefix="cl" data-idx="6">CL_100_챕터1<span class="sb-cov">100.0%</span></button><button class="subtab-btn " onclick="switchSubtab('cl', 7)" data-prefix="cl" data-idx="7">CL_101_챕터2<span class="sb-cov">100.0%</span></button><button class="subtab-btn " onclick="switchSubtab('cl', 8)" data-prefix="cl" data-idx="8">CL_102_챕터3<span class="sb-cov">100.0%</span></button><button class="subtab-btn " onclick="switchSubtab('cl', 9)" data-prefix="cl" data-idx="9">CL_103_챕터4<span class="sb-cov">100.0%</span></button></div><div class="subtab-content" id="cl-0" style="display:block"><div class="filter-bar"><button class="filter-btn active" onclick="filterResult('cl', 'all', this)">전체</button><button class="filter-btn" onclick="filterResult('cl', 'Fail', this)">Fail만 보기</button></div><div class="table-wrap"><table class="data-table"><thead><tr><th>No.</th><th>대분류</th><th>중분류</th><th>소분류</th><th>테스트항목</th><th>결과</th><th>BTS</th><th>비고</th></tr></thead><tbody><tr data-result="Pass">
                   <td>CL_001_001</td>
                   <td>인트로</td>
                   <td>UI</td>
@@ -3584,1138 +3584,1138 @@ INPUT_OFFSET</td>
                   <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_131</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 밀로 ] [ 1-1 ] 에피소드 퍼펙트 클리어 시 캐릭터 [ 상단 ]에 All Perfect 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_132</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 밀로 ] [ 1-1 ] 에피소드 S+ 랭크 클리어 시 캐릭터 [ 상단 ]에 S+랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_133</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 밀로 ] [ 1-1 ] 에피소드 S 랭크 클리어 시 캐릭터 [ 상단 ]에 S 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_134</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 밀로 ] [ 1-1 ] 에피소드 A+ 랭크 클리어 시 캐릭터 [ 상단 ]에 A+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_135</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 밀로 ] [ 1-1 ] 에피소드 A 랭크 클리어 시 캐릭터 [ 상단 ]에 A 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_136</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 밀로 ] [ 1-1 ] 에피소드 B+ 랭크 클리어 시 캐릭터 [ 상단 ]에 B+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_137</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 밀로 ] [ 1-1 ] 에피소드 B 랭크 클리어 시 캐릭터 [ 상단 ]에 B 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_138</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 밀로 ] [ 1-1 ] 에피소드 C+ 랭크 클리어 시 캐릭터 [ 상단 ]에 C+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_139</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 밀로 ] [ 1-1 ] 에피소드 C 랭크 클리어 시 캐릭터 [ 상단 ]에 C 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_140</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 밀로 ] [ 1-2 ] 에피소드 퍼펙트 클리어 시 캐릭터 [ 상단 ]에 All Perfect 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_141</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 밀로 ] [ 1-2 ] 에피소드 S+ 랭크 클리어 시 캐릭터 [ 상단 ]에 S+랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_142</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 밀로 ] [ 1-2 ] 에피소드 S 랭크 클리어 시 캐릭터 [ 상단 ]에 S 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_143</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 밀로 ] [ 1-2 ] 에피소드 A+ 랭크 클리어 시 캐릭터 [ 상단 ]에 A+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_144</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 밀로 ] [ 1-2 ] 에피소드 A 랭크 클리어 시 캐릭터 [ 상단 ]에 A 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_145</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 밀로 ] [ 1-2 ] 에피소드 B+ 랭크 클리어 시 캐릭터 [ 상단 ]에 B+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_146</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 밀로 ] [ 1-2 ] 에피소드 B 랭크 클리어 시 캐릭터 [ 상단 ]에 B 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_147</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 밀로 ] [ 1-2 ] 에피소드 C+ 랭크 클리어 시 캐릭터 [ 상단 ]에 C+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_148</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 밀로 ] [ 1-2 ] 에피소드 C 랭크 클리어 시 캐릭터 [ 상단 ]에 C 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_149</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 밀로 ] [ 1-3 ] 에피소드 퍼펙트 클리어 시 캐릭터 [ 상단 ]에 All Perfect 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_150</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 밀로 ] [ 1-3 ] 에피소드 S+ 랭크 클리어 시 캐릭터 [ 상단 ]에 S+랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_151</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 밀로 ] [ 1-3 ] 에피소드 S 랭크 클리어 시 캐릭터 [ 상단 ]에 S 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_152</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 밀로 ] [ 1-3 ] 에피소드 A+ 랭크 클리어 시 캐릭터 [ 상단 ]에 A+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_153</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 밀로 ] [ 1-3 ] 에피소드 A 랭크 클리어 시 캐릭터 [ 상단 ]에 A 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_154</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 밀로 ] [ 1-3 ] 에피소드 B+ 랭크 클리어 시 캐릭터 [ 상단 ]에 B+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_155</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 밀로 ] [ 1-3 ] 에피소드 B 랭크 클리어 시 캐릭터 [ 상단 ]에 B 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_156</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 밀로 ] [ 1-3 ] 에피소드 C+ 랭크 클리어 시 캐릭터 [ 상단 ]에 C+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_157</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 밀로 ] [ 1-3 ] 에피소드 C 랭크 클리어 시 캐릭터 [ 상단 ]에 C 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_158</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 밀로 ] [ 1-4 ] 에피소드 퍼펙트 클리어 시 캐릭터 [ 상단 ]에 All Perfect 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_159</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 밀로 ] [ 1-4 ] 에피소드 S+ 랭크 클리어 시 캐릭터 [ 상단 ]에 S+랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_160</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 밀로 ] [ 1-4 ] 에피소드 S 랭크 클리어 시 캐릭터 [ 상단 ]에 S 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_161</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 밀로 ] [ 1-4 ] 에피소드 A+ 랭크 클리어 시 캐릭터 [ 상단 ]에 A+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_162</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 밀로 ] [ 1-4 ] 에피소드 A 랭크 클리어 시 캐릭터 [ 상단 ]에 A 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_163</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 밀로 ] [ 1-4 ] 에피소드 B+ 랭크 클리어 시 캐릭터 [ 상단 ]에 B+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_164</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 밀로 ] [ 1-4 ] 에피소드 B 랭크 클리어 시 캐릭터 [ 상단 ]에 B 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_165</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 밀로 ] [ 1-4 ] 에피소드 C+ 랭크 클리어 시 캐릭터 [ 상단 ]에 C+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_166</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 밀로 ] [ 1-4 ] 에피소드 C 랭크 클리어 시 캐릭터 [ 상단 ]에 C 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_167</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 시에라 ] [ 2-1 ] 에피소드 퍼펙트 클리어 시 캐릭터 [ 상단 ]에 All Perfect 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_168</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 시에라 ] [ 2-1 ] 에피소드 S+ 랭크 클리어 시 캐릭터  [ 상단 ]에 S+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_169</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 시에라 ] [ 2-1 ] 에피소드 S 랭크 클리어 시 캐릭터  [ 상단 ]에 S 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_170</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 시에라 ] [ 2-1 ] 에피소드 A+ 랭크 클리어 시 캐릭터 [ 상단 ]에 A+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_171</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 시에라 ] [ 2-1 ] 에피소드 A 랭크 클리어 시 캐릭터 [ 상단 ]에 A 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_172</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 시에라 ] [ 2-1 ] 에피소드 B+ 랭크 클리어 시 캐릭터 [ 상단 ]에 B+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_173</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 시에라 ] [ 2-1 ] 에피소드 B 랭크 클리어 시 캐릭터 [ 상단 ]에 B 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_174</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 시에라 ] [ 2-1 ] 에피소드 C+ 랭크 클리어 시 캐릭터 [ 상단 ]에 C+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_175</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 시에라 ] [ 2-1 ] 에피소드 C 랭크 클리어 시 캐릭터 [ 상단 ]에 C 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_176</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 시에라 ] [ 2-2 ] 에피소드 퍼펙트 클리어 시 캐릭터 [ 상단 ]에 All Perfect 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_177</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 시에라 ] [ 2-2 ] 에피소드 S+ 랭크 클리어 시 캐릭터  [ 상단 ]에 S+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_178</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 시에라 ] [ 2-2 ] 에피소드 S 랭크 클리어 시 캐릭터  [ 상단 ]에 S 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_179</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 시에라 ] [ 2-2 ] 에피소드 A+ 랭크 클리어 시 캐릭터 [ 상단 ]에 A+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_180</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 시에라 ] [ 2-2 ] 에피소드 A 랭크 클리어 시 캐릭터 [ 상단 ]에 A 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_181</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 시에라 ] [ 2-2 ] 에피소드 B+ 랭크 클리어 시 캐릭터 [ 상단 ]에 B+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_182</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 시에라 ] [ 2-2 ] 에피소드 B 랭크 클리어 시 캐릭터 [ 상단 ]에 B 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_183</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 시에라 ] [ 2-2 ] 에피소드 C+ 랭크 클리어 시 캐릭터 [ 상단 ]에 C+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_184</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 시에라 ] [ 2-2 ] 에피소드 C 랭크 클리어 시 캐릭터 [ 상단 ]에 C 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_185</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 시에라 ] [ 2-3 ] 에피소드 퍼펙트 클리어 시 캐릭터 [ 상단 ]에 All Perfect 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_186</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 시에라 ] [ 2-3 ] 에피소드 S+ 랭크 클리어 시 캐릭터  [ 상단 ]에 S+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_187</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 시에라 ] [ 2-3 ] 에피소드 S 랭크 클리어 시 캐릭터  [ 상단 ]에 S 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_188</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 시에라 ] [ 2-3 ] 에피소드 A+ 랭크 클리어 시 캐릭터 [ 상단 ]에 A+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_189</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 시에라 ] [ 2-3 ] 에피소드 A 랭크 클리어 시 캐릭터 [ 상단 ]에 A 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_190</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 시에라 ] [ 2-3 ] 에피소드 B+ 랭크 클리어 시 캐릭터 [ 상단 ]에 B+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_191</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 시에라 ] [ 2-3 ] 에피소드 B 랭크 클리어 시 캐릭터 [ 상단 ]에 B 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_192</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 시에라 ] [ 2-3 ] 에피소드 C+ 랭크 클리어 시 캐릭터 [ 상단 ]에 C+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_193</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 시에라 ] [ 2-3 ] 에피소드 C 랭크 클리어 시 캐릭터 [ 상단 ]에 C 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_194</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 한나 ] [ 3-1 ] 에피소드 퍼펙트 클리어 시 캐릭터 [ 상단 ]에 All Perfect 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_195</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 한나 ] [ 3-1 ] 에피소드 S+ 랭크 클리어 시 캐릭터 [ 상단 ]에 S+랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_196</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 한나 ] [ 3-1 ] 에피소드 S 랭크 클리어 시 캐릭터 [ 상단 ]에 S 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_197</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 한나 ] [ 3-1 ] 에피소드 A+ 랭크 클리어 시 캐릭터 [ 상단 ]에 A+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_198</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 한나 ] [ 3-1 ] 에피소드 A 랭크 클리어 시 캐릭터 [ 상단 ]에 A 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_199</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 한나 ] [ 3-1 ] 에피소드 B+ 랭크 클리어 시 캐릭터 [ 상단 ]에 B+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_200</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 한나 ] [ 3-1 ] 에피소드 B 랭크 클리어 시 캐릭터 [ 상단 ]에 B 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_201</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 한나 ] [ 3-1 ] 에피소드 C+ 랭크 클리어 시 캐릭터 [ 상단 ]에 C+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_202</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 한나 ] [ 3-1 ] 에피소드 C 랭크 클리어 시 캐릭터 [ 상단 ]에 C 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_203</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 한나 ] [ 3-2 ] 에피소드 퍼펙트 클리어 시 캐릭터 [ 상단 ]에 All Perfect 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_204</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 한나 ] [ 3-2 ] 에피소드 S+ 랭크 클리어 시 캐릭터 [ 상단 ]에 S+랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_205</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 한나 ] [ 3-2 ] 에피소드 S 랭크 클리어 시 캐릭터 [ 상단 ]에 S 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_206</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 한나 ] [ 3-2 ] 에피소드 A+ 랭크 클리어 시 캐릭터 [ 상단 ]에 A+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_207</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 한나 ] [ 3-2 ] 에피소드 A 랭크 클리어 시 캐릭터 [ 상단 ]에 A 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_208</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 한나 ] [ 3-2 ] 에피소드 B+ 랭크 클리어 시 캐릭터 [ 상단 ]에 B+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_209</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 한나 ] [ 3-2 ] 에피소드 B 랭크 클리어 시 캐릭터 [ 상단 ]에 B 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_210</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 한나 ] [ 3-2 ] 에피소드 C+ 랭크 클리어 시 캐릭터 [ 상단 ]에 C+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_211</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 한나 ] [ 3-2 ] 에피소드 C 랭크 클리어 시 캐릭터 [ 상단 ]에 C 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_212</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 한나 ] [ 3-3 ] 에피소드 퍼펙트 클리어 시 캐릭터 [ 상단 ]에 All Perfect 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_213</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 한나 ] [ 3-3 ] 에피소드 S+ 랭크 클리어 시 캐릭터 [ 상단 ]에 S+랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_214</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 한나 ] [ 3-3 ] 에피소드 S 랭크 클리어 시 캐릭터 [ 상단 ]에 S 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_215</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 한나 ] [ 3-3 ] 에피소드 A+ 랭크 클리어 시 캐릭터 [ 상단 ]에 A+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_216</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 한나 ] [ 3-3 ] 에피소드 A 랭크 클리어 시 캐릭터 [ 상단 ]에 A 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_217</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 한나 ] [ 3-3 ] 에피소드 B+ 랭크 클리어 시 캐릭터 [ 상단 ]에 B+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_218</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 한나 ] [ 3-3 ] 에피소드 B 랭크 클리어 시 캐릭터 [ 상단 ]에 B 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_219</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 한나 ] [ 3-3 ] 에피소드 C+ 랭크 클리어 시 캐릭터 [ 상단 ]에 C+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_220</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 한나 ] [ 3-3 ] 에피소드 C 랭크 클리어 시 캐릭터 [ 상단 ]에 C 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_221</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 한나 ] [ 3-4 ] 에피소드 퍼펙트 클리어 시 캐릭터 [ 상단 ]에 All Perfect 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_222</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 한나 ] [ 3-4 ] 에피소드 S+ 랭크 클리어 시 캐릭터 [ 상단 ]에 S+랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_223</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 한나 ] [ 3-4 ] 에피소드 S 랭크 클리어 시 캐릭터 [ 상단 ]에 S 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_224</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 한나 ] [ 3-4 ] 에피소드 A+ 랭크 클리어 시 캐릭터 [ 상단 ]에 A+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_225</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 한나 ] [ 3-4 ] 에피소드 A 랭크 클리어 시 캐릭터 [ 상단 ]에 A 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_226</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 한나 ] [ 3-4 ] 에피소드 B+ 랭크 클리어 시 캐릭터 [ 상단 ]에 B+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_227</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 한나 ] [ 3-4 ] 에피소드 B 랭크 클리어 시 캐릭터 [ 상단 ]에 B 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_228</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 한나 ] [ 3-4 ] 에피소드 C+ 랭크 클리어 시 캐릭터 [ 상단 ]에 C+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_229</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 한나 ] [ 3-4 ] 에피소드 C 랭크 클리어 시 캐릭터 [ 상단 ]에 C 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_230</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 케빈 ] [ 4-1 ] 에피소드 퍼펙트 클리어 시 캐릭터 [ 상단 ]에 All Perfect 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_231</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 케빈 ] [ 4-1 ] 에피소드 S+ 랭크 클리어 시 캐릭터 [ 상단 ]에 S+랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_232</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 케빈 ] [ 4-1 ] 에피소드 S 랭크 클리어 시 캐릭터 [ 상단 ]에 S 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_233</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 케빈 ] [ 4-1 ] 에피소드 A+ 랭크 클리어 시 캐릭터 [ 상단 ]에 A+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_234</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 케빈 ] [ 4-1 ] 에피소드 A 랭크 클리어 시 캐릭터 [ 상단 ]에 A 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_235</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 케빈 ] [ 4-1 ] 에피소드 B+ 랭크 클리어 시 캐릭터 [ 상단 ]에 B+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_236</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 케빈 ] [ 4-1 ] 에피소드 B 랭크 클리어 시 캐릭터 [ 상단 ]에 B 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_237</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 케빈 ] [ 4-1 ] 에피소드 C+ 랭크 클리어 시 캐릭터 [ 상단 ]에 C+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_238</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 케빈 ] [ 4-1 ] 에피소드 C 랭크 클리어 시 캐릭터 [ 상단 ]에 C 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_239</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 케빈 ] [ 4-2 ] 에피소드 퍼펙트 클리어 시 캐릭터 [ 상단 ]에 All Perfect 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_240</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 케빈 ] [ 4-2 ] 에피소드 S+ 랭크 클리어 시 캐릭터 [ 상단 ]에 S+랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_241</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 케빈 ] [ 4-2 ] 에피소드 S 랭크 클리어 시 캐릭터 [ 상단 ]에 S 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_242</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 케빈 ] [ 4-2 ] 에피소드 A+ 랭크 클리어 시 캐릭터 [ 상단 ]에 A+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_243</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 케빈 ] [ 4-2 ] 에피소드 A 랭크 클리어 시 캐릭터 [ 상단 ]에 A 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_244</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 케빈 ] [ 4-2 ] 에피소드 B+ 랭크 클리어 시 캐릭터 [ 상단 ]에 B+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_245</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 케빈 ] [ 4-2 ] 에피소드 B 랭크 클리어 시 캐릭터 [ 상단 ]에 B 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_246</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 케빈 ] [ 4-2 ] 에피소드 C+ 랭크 클리어 시 캐릭터 [ 상단 ]에 C+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_247</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 케빈 ] [ 4-2 ] 에피소드 C 랭크 클리어 시 캐릭터 [ 상단 ]에 C 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_248</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 케빈 ] [ 4-3 ] 에피소드 퍼펙트 클리어 시 캐릭터 [ 상단 ]에 All Perfect 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_249</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 케빈 ] [ 4-3 ] 에피소드 S+ 랭크 클리어 시 캐릭터 [ 상단 ]에 S+랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_250</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 케빈 ] [ 4-3 ] 에피소드 S 랭크 클리어 시 캐릭터 [ 상단 ]에 S 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_251</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 케빈 ] [ 4-3 ] 에피소드 A+ 랭크 클리어 시 캐릭터 [ 상단 ]에 A+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_252</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 케빈 ] [ 4-3 ] 에피소드 A 랭크 클리어 시 캐릭터 [ 상단 ]에 A 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_253</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 케빈 ] [ 4-3 ] 에피소드 B+ 랭크 클리어 시 캐릭터 [ 상단 ]에 B+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_254</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 케빈 ] [ 4-3 ] 에피소드 B 랭크 클리어 시 캐릭터 [ 상단 ]에 B 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_255</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 케빈 ] [ 4-3 ] 에피소드 C+ 랭크 클리어 시 캐릭터 [ 상단 ]에 C+ 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
-                </tr><tr data-result="NoRun">
+                </tr><tr data-result="Pass">
                   <td>CL_006_256</td>
                   <td>에피소드 선택 화면</td>
                   <td>UI</td>
                   <td>에피소드 랭크</td>
                   <td>[ 케빈 ] [ 4-3 ] 에피소드 C 랭크 클리어 시 캐릭터 [ 상단 ]에 C 랭크 출력 확인</td>
-                  <td class="result-norun">NoRun</td>
+                  <td class="result-pass">Pass</td>
                   <td></td>
                   <td></td>
                 </tr><tr data-result="Pass">
@@ -9041,10 +9041,10 @@ const coverageCtx = document.getElementById('coverageChart').getContext('2d');
 new Chart(coverageCtx, {
   type: 'bar',
   data: {
-    labels: ["케빈 챕터", "한나 챕터", "시에라 챕터", "밀로 챕터", "게임결과 화면", "챕터 선택 화면", "에피소드 선택 화면", "설정 창", "일시정지", "오프셋 보정", "크레딧", "인트로", "메인 화면"],
+    labels: ["인트로", "메인 화면", "설정 창", "일시정지", "크레딧", "오프셋 보정", "챕터 선택 화면", "에피소드 선택 화면", "게임결과 화면", "밀로 챕터", "시에라 챕터", "한나 챕터", "케빈 챕터"],
     datasets: [
-      {label: 'Pass (%)', data: [100.0, 100.0, 100.0, 100.0, 100.0, 98.8, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0], backgroundColor: '#3b82f6', borderRadius: 0},
-      {label: 'Fail (%)', data: [0.0, 0.0, 0.0, 0.0, 0.0, 1.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], backgroundColor: '#ef4444', borderRadius: 0}
+      {label: 'Pass (%)', data: [100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 98.8, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0], backgroundColor: '#3b82f6', borderRadius: 0},
+      {label: 'Fail (%)', data: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], backgroundColor: '#ef4444', borderRadius: 0}
     ]
   },
   options: {
