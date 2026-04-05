@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>QA 보고서 — 배포 빌드 / Steam v0.4.5.3</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Segoe UI',sans-serif;background:#f1f5f9;color:#1e293b;}
@@ -32,12 +33,17 @@ body{font-family:'Segoe UI',sans-serif;background:#f1f5f9;color:#1e293b;}
 .card-block .card-num{color:#f97316;}
 .card-norun .card-num{color:#94a3b8;}
 .card-coverage .card-num{color:#2563eb;}
-.charts{display:grid;grid-template-columns:2fr 1fr;gap:24px;margin-bottom:24px;}
+.chart-row1{margin-bottom:24px;}
+.chart-row2{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px;}
 .chart-box{background:#fff;border-radius:12px;padding:20px;box-shadow:0 1px 3px rgba(0,0,0,.08);}
 .chart-box h3{font-size:0.95rem;color:#475569;margin-bottom:12px;}
-.subtabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:12px;}
-.subtab-btn{padding:6px 14px;border:1px solid #e2e8f0;border-radius:8px;background:#fff;cursor:pointer;font-size:0.85rem;color:#475569;display:inline-flex;align-items:center;gap:5px;}
-.subtab-btn.active{background:#2563eb;color:#fff;border-color:#2563eb;}
+.subtabs{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin-bottom:16px;}
+.subtab-btn{padding:10px 14px;border:1px solid #e2e8f0;border-radius:10px;background:#fff;cursor:pointer;font-size:0.82rem;color:#475569;display:flex;flex-direction:column;align-items:flex-start;gap:4px;line-height:1.3;text-align:left;transition:box-shadow .15s,border-color .15s;}
+.subtab-btn:hover{border-color:#93c5fd;box-shadow:0 2px 6px rgba(37,99,235,.1);}
+.subtab-btn .btn-title{font-weight:600;color:#1e293b;font-size:0.83rem;}
+.subtab-btn .btn-badges{display:flex;gap:4px;align-items:center;}
+.subtab-btn.active{background:#2563eb;border-color:#2563eb;box-shadow:0 2px 8px rgba(37,99,235,.3);}
+.subtab-btn.active .btn-title{color:#fff;}
 .subtab-btn.active .sb-cov{background:rgba(255,255,255,0.25);color:#fff;}
 .subtab-btn.active .sb-fail{background:rgba(255,255,255,0.2);color:#fca5a5;}
 .sb-cov{padding:1px 6px;border-radius:10px;background:#dbeafe;color:#1d4ed8;font-size:0.72rem;font-weight:700;white-space:nowrap;}
@@ -82,7 +88,7 @@ body{font-family:'Segoe UI',sans-serif;background:#f1f5f9;color:#1e293b;}
 <body>
 <div class="hero">
   <h1>🎮 Noise Canceler — QA 보고서</h1>
-  <div class="meta">배포 빌드 / Steam &nbsp;|&nbsp; v0.4.5.3 &nbsp;|&nbsp; 테스트 일자: 2026-04-02</div>
+  <div class="meta">배포 빌드 / Steam &nbsp;|&nbsp; v0.4.5.3 &nbsp;|&nbsp; 테스트 일자: 2026-04-05</div>
   <div class="badges">
     <div class="badge badge-critical">Critical: 1건</div>
     <div class="badge badge-block">Block: 0건</div>
@@ -94,7 +100,7 @@ body{font-family:'Segoe UI',sans-serif;background:#f1f5f9;color:#1e293b;}
 <div class="container">
   <div class="tabs">
     <button class="tab-btn active" onclick="switchTab('summary')">요약 대시보드</button>
-    <button class="tab-btn" onclick="switchTab('cl')">CL 상세</button>
+    <button class="tab-btn" onclick="switchTab('cl')">상세 테스트 항목</button>
     
     <button class="tab-btn" onclick="switchTab('bts')">BTS</button>
   </div>
@@ -108,16 +114,19 @@ body{font-family:'Segoe UI',sans-serif;background:#f1f5f9;color:#1e293b;}
       <div class="card card-norun"><div class="card-num">1</div><div class="card-label">NoRun</div></div>
       <div class="card card-coverage"><div class="card-num">99.9%</div><div class="card-label">커버리지</div></div>
     </div>
-    <div class="charts">
-      <div class="chart-box"><h3>카테고리별 커버리지</h3><canvas id="coverageChart"></canvas></div>
-      <div class="chart-box"><h3>버그 심각도 분포</h3><canvas id="bugChart"></canvas></div>
+    <div class="chart-row1">
+      <div class="chart-box"><h3>카테고리별 커버리지</h3><div style="height:360px;"><canvas id="coverageChart"></canvas></div></div>
+    </div>
+    <div class="chart-row2">
+      <div class="chart-box"><h3>버그 심각도 분포</h3><div style="height:280px;"><canvas id="bugChart"></canvas></div><div id="bugLegend" style="text-align:center;margin-top:8px;"></div></div>
+      <div class="chart-box"><h3>결함 분포</h3><div style="height:280px;"><canvas id="defectChart"></canvas></div><div id="defectLegend" style="text-align:center;margin-top:8px;"></div></div>
     </div>
   </div>
 
   <!-- CL 상세 -->
   <div class="tab-pane" id="tab-cl">
     <div class="all-fail-bar"><button class="all-fail-btn" id="cl-all-fail-btn" onclick="toggleAllFail('cl')">전체 Fail만 보기</button></div>
-    <div id="cl-subtab-view"><div class="sheet-stat-bar" id="cl-stat-bar" style="display:none"><div><div class="ss-label">Pass</div><div class="ss-val ss-pass" id="cl-sb-pass">-</div></div><div><div class="ss-label">Pass%</div><div class="ss-val ss-cov" id="cl-sb-cov">-</div></div><div><div class="ss-label">Fail</div><div class="ss-val ss-fail" id="cl-sb-fail">-</div></div><div><div class="ss-label">Fail%</div><div class="ss-val ss-fail" id="cl-sb-failpct">-</div></div><div><div class="ss-label">NoRun</div><div class="ss-val ss-norun" id="cl-sb-norun">-</div></div></div><script>var clStats=[{"pass":40,"fail":0,"norun":0,"total":40,"cov":100.0,"failPct":0.0},{"pass":131,"fail":0,"norun":0,"total":131,"cov":100.0,"failPct":0.0},{"pass":20,"fail":0,"norun":0,"total":20,"cov":100.0,"failPct":0.0},{"pass":53,"fail":0,"norun":0,"total":53,"cov":100.0,"failPct":0.0},{"pass":336,"fail":1,"norun":1,"total":338,"cov":99.7,"failPct":0.3},{"pass":15,"fail":0,"norun":0,"total":15,"cov":100.0,"failPct":0.0},{"pass":90,"fail":0,"norun":0,"total":90,"cov":100.0,"failPct":0.0},{"pass":84,"fail":0,"norun":0,"total":84,"cov":100.0,"failPct":0.0},{"pass":95,"fail":0,"norun":0,"total":95,"cov":100.0,"failPct":0.0},{"pass":93,"fail":0,"norun":0,"total":93,"cov":100.0,"failPct":0.0}];function updateClStatBar(idx){var s=clStats[idx];if(!s)return;document.getElementById("cl-sb-pass").textContent=s.pass;document.getElementById("cl-sb-cov").textContent=s.cov+"%";document.getElementById("cl-sb-fail").textContent=s.fail;document.getElementById("cl-sb-failpct").textContent=s.failPct+"%";document.getElementById("cl-sb-norun").textContent=s.norun;}</script><div class="subtabs"><button class="subtab-btn active" onclick="switchSubtab('cl', 0)" data-prefix="cl" data-idx="0">CL_001_메인화면<span class="sb-cov">100.0%</span></button><button class="subtab-btn " onclick="switchSubtab('cl', 1)" data-prefix="cl" data-idx="1">CL_002_설정/일시정지<span class="sb-cov">100.0%</span></button><button class="subtab-btn " onclick="switchSubtab('cl', 2)" data-prefix="cl" data-idx="2">CL_003_크레딧<span class="sb-cov">100.0%</span></button><button class="subtab-btn " onclick="switchSubtab('cl', 3)" data-prefix="cl" data-idx="3">CL_004_오프셋 보정 화면<span class="sb-cov">100.0%</span></button><button class="subtab-btn " onclick="switchSubtab('cl', 4)" data-prefix="cl" data-idx="4">CL_006_챕터선택_에피소드선택_화면<span class="sb-cov">99.7%</span><span class="sb-fail">1F</span></button><button class="subtab-btn " onclick="switchSubtab('cl', 5)" data-prefix="cl" data-idx="5">CL_007_게임결과 화면<span class="sb-cov">100.0%</span></button><button class="subtab-btn " onclick="switchSubtab('cl', 6)" data-prefix="cl" data-idx="6">CL_100_챕터1<span class="sb-cov">100.0%</span></button><button class="subtab-btn " onclick="switchSubtab('cl', 7)" data-prefix="cl" data-idx="7">CL_101_챕터2<span class="sb-cov">100.0%</span></button><button class="subtab-btn " onclick="switchSubtab('cl', 8)" data-prefix="cl" data-idx="8">CL_102_챕터3<span class="sb-cov">100.0%</span></button><button class="subtab-btn " onclick="switchSubtab('cl', 9)" data-prefix="cl" data-idx="9">CL_103_챕터4<span class="sb-cov">100.0%</span></button></div><div class="subtab-content" id="cl-0" style="display:block"><div class="filter-bar"><button class="filter-btn active" onclick="filterResult('cl', 'all', this)">전체</button><button class="filter-btn" onclick="filterResult('cl', 'Fail', this)">Fail만 보기</button></div><div class="table-wrap"><table class="data-table"><thead><tr><th>No.</th><th>대분류</th><th>중분류</th><th>소분류</th><th>테스트항목</th><th>결과</th><th>BTS</th><th>비고</th></tr></thead><tbody><tr data-result="Pass">
+    <div id="cl-subtab-view"><div class="sheet-stat-bar" id="cl-stat-bar" style="display:none"><div><div class="ss-label">Pass</div><div class="ss-val ss-pass" id="cl-sb-pass">-</div></div><div><div class="ss-label">Pass%</div><div class="ss-val ss-cov" id="cl-sb-cov">-</div></div><div><div class="ss-label">Fail</div><div class="ss-val ss-fail" id="cl-sb-fail">-</div></div><div><div class="ss-label">Fail%</div><div class="ss-val ss-fail" id="cl-sb-failpct">-</div></div><div><div class="ss-label">NoRun</div><div class="ss-val ss-norun" id="cl-sb-norun">-</div></div></div><script>var clStats=[{"pass":40,"fail":0,"norun":0,"total":40,"cov":100.0,"failPct":0.0},{"pass":131,"fail":0,"norun":0,"total":131,"cov":100.0,"failPct":0.0},{"pass":20,"fail":0,"norun":0,"total":20,"cov":100.0,"failPct":0.0},{"pass":53,"fail":0,"norun":0,"total":53,"cov":100.0,"failPct":0.0},{"pass":336,"fail":1,"norun":1,"total":338,"cov":99.7,"failPct":0.3},{"pass":15,"fail":0,"norun":0,"total":15,"cov":100.0,"failPct":0.0},{"pass":90,"fail":0,"norun":0,"total":90,"cov":100.0,"failPct":0.0},{"pass":84,"fail":0,"norun":0,"total":84,"cov":100.0,"failPct":0.0},{"pass":95,"fail":0,"norun":0,"total":95,"cov":100.0,"failPct":0.0},{"pass":93,"fail":0,"norun":0,"total":93,"cov":100.0,"failPct":0.0}];function updateClStatBar(idx){var s=clStats[idx];if(!s)return;document.getElementById("cl-sb-pass").textContent=s.pass;document.getElementById("cl-sb-cov").textContent=s.cov+"%";document.getElementById("cl-sb-fail").textContent=s.fail;document.getElementById("cl-sb-failpct").textContent=s.failPct+"%";document.getElementById("cl-sb-norun").textContent=s.norun;}</script><div class="subtabs"><button class="subtab-btn active" onclick="switchSubtab('cl', 0)" data-prefix="cl" data-idx="0"><span class="btn-title">메인화면</span><span class="btn-badges"><span class="sb-cov">100.0%</span></span></button><button class="subtab-btn " onclick="switchSubtab('cl', 1)" data-prefix="cl" data-idx="1"><span class="btn-title">설정/일시정지</span><span class="btn-badges"><span class="sb-cov">100.0%</span></span></button><button class="subtab-btn " onclick="switchSubtab('cl', 2)" data-prefix="cl" data-idx="2"><span class="btn-title">크레딧</span><span class="btn-badges"><span class="sb-cov">100.0%</span></span></button><button class="subtab-btn " onclick="switchSubtab('cl', 3)" data-prefix="cl" data-idx="3"><span class="btn-title">오프셋 보정 화면</span><span class="btn-badges"><span class="sb-cov">100.0%</span></span></button><button class="subtab-btn " onclick="switchSubtab('cl', 4)" data-prefix="cl" data-idx="4"><span class="btn-title">챕터선택_에피소드선택_화면</span><span class="btn-badges"><span class="sb-cov">99.7%</span><span class="sb-fail">1F</span></span></button><button class="subtab-btn " onclick="switchSubtab('cl', 5)" data-prefix="cl" data-idx="5"><span class="btn-title">게임결과 화면</span><span class="btn-badges"><span class="sb-cov">100.0%</span></span></button><button class="subtab-btn " onclick="switchSubtab('cl', 6)" data-prefix="cl" data-idx="6"><span class="btn-title">챕터1</span><span class="btn-badges"><span class="sb-cov">100.0%</span></span></button><button class="subtab-btn " onclick="switchSubtab('cl', 7)" data-prefix="cl" data-idx="7"><span class="btn-title">챕터2</span><span class="btn-badges"><span class="sb-cov">100.0%</span></span></button><button class="subtab-btn " onclick="switchSubtab('cl', 8)" data-prefix="cl" data-idx="8"><span class="btn-title">챕터3</span><span class="btn-badges"><span class="sb-cov">100.0%</span></span></button><button class="subtab-btn " onclick="switchSubtab('cl', 9)" data-prefix="cl" data-idx="9"><span class="btn-title">챕터4</span><span class="btn-badges"><span class="sb-cov">100.0%</span></span></button></div><div class="subtab-content" id="cl-0" style="display:block"><div class="filter-bar"><button class="filter-btn active" onclick="filterResult('cl', 'all', this)">전체</button><button class="filter-btn" onclick="filterResult('cl', 'Fail', this)">Fail만 보기</button></div><div class="table-wrap"><table class="data-table"><thead><tr><th>No.</th><th>대분류</th><th>중분류</th><th>소분류</th><th>테스트항목</th><th>결과</th><th>BTS</th><th>비고</th></tr></thead><tbody><tr data-result="Pass">
                   <td>CL_001_001</td>
                   <td>인트로</td>
                   <td>UI</td>
@@ -9037,6 +9046,41 @@ function toggleAllFail(prefix) {
   }
 }
 
+Chart.register(ChartDataLabels);
+
+// % 포맷: 소수점 1자리, 0이면 빈 문자열
+function pctLabel(v, ctx) {
+  const t = ctx.dataset.data.reduce((a, b) => a + b, 0);
+  if (t === 0 || v === 0) return '';
+  const p = v / t * 100;
+  return (p < 1 ? p.toFixed(1) : Math.round(p)) + '%';
+}
+
+// 커스텀 체크박스 레전드 생성 (도넛 차트용) — 차트 생성 후 1회만 호출
+function buildCheckboxLegend(chart, containerId) {
+  const container = document.getElementById(containerId);
+  container.innerHTML = '';
+  chart.data.labels.forEach((label, i) => {
+    const color = chart.data.datasets[0].backgroundColor[i];
+    const wrapper = document.createElement('label');
+    wrapper.style.cssText = 'display:inline-flex;align-items:center;gap:6px;margin:4px 8px;cursor:pointer;font-size:0.82rem;color:#475569;';
+    const cb = document.createElement('input');
+    cb.type = 'checkbox';
+    cb.checked = true;
+    cb.style.cssText = 'accent-color:' + color + ';width:14px;height:14px;cursor:pointer;';
+    cb.addEventListener('change', () => {
+      chart.toggleDataVisibility(i);
+      chart.update();
+    });
+    const dot = document.createElement('span');
+    dot.style.cssText = 'display:inline-block;width:10px;height:10px;border-radius:50%;background:' + color + ';';
+    wrapper.appendChild(cb);
+    wrapper.appendChild(dot);
+    wrapper.appendChild(document.createTextNode(label));
+    container.appendChild(wrapper);
+  });
+}
+
 const coverageCtx = document.getElementById('coverageChart').getContext('2d');
 new Chart(coverageCtx, {
   type: 'bar',
@@ -9048,21 +9092,72 @@ new Chart(coverageCtx, {
     ]
   },
   options: {
+    maintainAspectRatio: false,
     indexAxis: 'y',
-    plugins: {legend: {position: 'bottom'}},
+    plugins: {legend: {position: 'bottom'}, datalabels: {display: false}},
     scales: {x: {min: 0, max: 100, stacked: true}, y: {stacked: true}}
   }
 });
 
 const bugCtx = document.getElementById('bugChart').getContext('2d');
-new Chart(bugCtx, {
+const bugRaw = [1, 1, 2];
+const bugTotal = bugRaw.reduce((a, b) => a + b, 0);
+if (bugTotal === 0) {
+  const bugChart = new Chart(bugCtx, {
+    type: 'doughnut',
+    data: { labels: ['버그 없음'], datasets: [{ data: [1], backgroundColor: ['#e2e8f0'] }] },
+    options: {
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        datalabels: { color: '#94a3b8', formatter: () => '버그 없음', font: { size: 13 } }
+      }
+    }
+  });
+  buildCheckboxLegend(bugChart, 'bugLegend');
+} else {
+  const bugChart = new Chart(bugCtx, {
+    type: 'doughnut',
+    data: {
+      labels: ['Critical', 'Major', 'Minor'],
+      datasets: [{ data: bugRaw, backgroundColor: ['#ef4444','#f97316','#eab308'] }]
+    },
+    options: {
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        datalabels: {
+          color: '#fff',
+          formatter: pctLabel,
+          font: { weight: 'bold', size: 13 }
+        }
+      }
+    }
+  });
+  buildCheckboxLegend(bugChart, 'bugLegend');
+}
+
+const defectCtx = document.getElementById('defectChart').getContext('2d');
+const defectChart = new Chart(defectCtx, {
   type: 'doughnut',
   data: {
-    labels: ['Critical', 'Major', 'Minor'],
-    datasets: [{data: [1, 1, 2], backgroundColor: ['#ef4444','#f97316','#eab308']}]
+    labels: ['Pass', 'Fail', 'Block', 'NoRun'],
+    datasets: [{ data: [957, 1, 0, 1], backgroundColor: ['#22c55e','#ef4444','#f97316','#94a3b8'] }]
   },
-  options: {plugins: {legend: {position: 'bottom'}}}
+  options: {
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      datalabels: {
+        color: '#fff',
+        formatter: pctLabel,
+        font: { weight: 'bold', size: 13 }
+      }
+    }
+  }
 });
+buildCheckboxLegend(defectChart, 'defectLegend');
+
 </script>
 </body>
 </html>
