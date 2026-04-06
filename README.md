@@ -1,3 +1,3 @@
 # Noise_Canceler_QA
 
-TC 기록
+QA 보고서 대시보드 기록
