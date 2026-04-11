@@ -88,7 +88,7 @@ body{font-family:'Segoe UI',sans-serif;background:#f1f5f9;color:#1e293b;}
 <body>
 <div class="hero">
   <h1>🎮 Noise Canceler — QA 보고서</h1>
-  <div class="meta">배포 빌드 / Steam &nbsp;|&nbsp; v0.4.5.3 &nbsp;|&nbsp; 테스트 일자: 2026-04-06</div>
+  <div class="meta">배포 빌드 / Steam &nbsp;|&nbsp; v0.4.5.3 &nbsp;|&nbsp; 테스트 일자: 2026-04-11</div>
   <div class="badges">
     <div class="badge badge-critical">Critical: 1건</div>
     <div class="badge badge-block">Block: 0건</div>
@@ -102,7 +102,7 @@ body{font-family:'Segoe UI',sans-serif;background:#f1f5f9;color:#1e293b;}
     <button class="tab-btn active" onclick="switchTab('summary')">요약 대시보드</button>
     <button class="tab-btn" onclick="switchTab('cl')">상세 테스트 항목</button>
     
-    <button class="tab-btn" onclick="switchTab('bts')">BTS</button>
+    <button class="tab-btn" onclick="switchTab('bts')">버그 목록</button>
   </div>
 
   <!-- 요약 대시보드 -->
@@ -8936,7 +8936,7 @@ INPUT_OFFSET</td>
   <div class="tab-pane" id="tab-bts">
     <div class="table-wrap">
     <table class="data-table">
-      <thead><tr><th>No.</th><th>일자</th><th>이슈 상태</th><th>플랫폼</th><th>심각도</th><th>제목</th><th>상세 내용</th><th>재현률</th></tr></thead>
+      <thead><tr><th>No.</th><th>일자</th><th>이슈 상태</th><th>플랫폼</th><th>심각도</th><th>제목</th><th>상세 내용</th><th>재현률</th><th>추적</th></tr></thead>
       <tbody><tr>
           <td>BTS_0001</td>
           <td class="col-date">2026-03-15</td>
@@ -8946,6 +8946,7 @@ INPUT_OFFSET</td>
           <td><span class="bug-tag">[일시정지 창]</span><span class="bug-title-text">에피소드 화면에서 애니메이션 구간 진입 시<br> ESC 연속 입력으로 타임라인 미재생</span></td>
           <td>에피소드 화면 진입 후<br>애니메이션 연출 진행 구간에서<br> ESC키 연속 3번 이상 입력 (일시정지 창 2번 호출)시 <br>에피소드 진행 애니메이션 연출 진행이 되지 않습니다.<br><br>Unity의 타임라인이 멈추는 현상으로 판단됩니다.<br><br>대사 연출 부분에서는 영향을 받지 않습니다.<br>채보 부분에서는 영향을 받지 않습니다.</td>
           <td>5/5(100%)</td>
+          <td>[ Test_Build ]<br>&nbsp;BTS_0012에서 수정 확인필요</td>
         </tr><tr>
           <td>BTS_0004</td>
           <td class="col-date">2026-03-18</td>
@@ -8955,6 +8956,7 @@ INPUT_OFFSET</td>
           <td><span class="bug-tag">[오프셋 보정 화면]</span><span class="bug-title-text">오프셋 조절 진행 단계에서 Enter 키 입력 시<br>오프셋 조정 관련 배경음이 출력되는 문제</span></td>
           <td>오프셋 조절 진행 단계에서<br>Enter키 입력 시 오프셋 저장 완료 창이 호출 후<br>메인화면으로 이동 후 오프셋 조정 관련 배경음이 출력됩니다.</td>
           <td>5/5(100%)</td>
+          <td>[ 해결 완료 ]<br>[ Test_Build ]<br>v0.4.6.1에서 수정 확인</td>
         </tr><tr>
           <td>BTS_0005</td>
           <td class="col-date">2026-03-19</td>
@@ -8964,6 +8966,7 @@ INPUT_OFFSET</td>
           <td><span class="bug-tag">[오프셋 보정 화면]</span><span class="bug-title-text">오프셋 값 수정 후 로컬에 저정되는 값이 다른 문제</span></td>
           <td>오프셋 조정 화면에서 <br>수정 한 오프셋 값이<br>로컬(AppData\LocalLow\MandU\Noise Canceler\SaveFile.es3) <br>INPUT_OFFSET 데이터에 <br>올바르게 저장되지 않습니다.</td>
           <td>5/5(100%)</td>
+          <td>[ Test_Build ]<br>&nbsp;BTS_007에서 수정 확인필요</td>
         </tr><tr>
           <td>BTS_0013</td>
           <td class="col-date">2026-03-26</td>
@@ -8973,6 +8976,7 @@ INPUT_OFFSET</td>
           <td><span class="bug-tag">[챕터 선택 화면]</span><span class="bug-title-text">메인 화면에서 게임 시작 2번 이상 진입 시<br>바로 에피소드 선택 화면으로 진입하는 문제</span></td>
           <td>메인 화면에 재 진입 후 게임 시작과 상호작용 시<br>챕터 선택 화면이 아닌 바로 에피소드 선택 화면으로 진입 합니다.<br><br>정상적인 행동과  비정상적인 행동은 다음과 같습니다.<br><br>1. 최초 메인 화면 진입 후 게임 시작 버튼을 누를 시 챕터 선택 화면 진입 확인 (정상)<br>2. 메인 화면 재 진입 후 게임 시작 버튼을 누를 시 에피소드 선택 화면 진입 확인 (비정상)</td>
           <td>5/5(100%)</td>
+          <td>[해결 완료]<br>[ Test_Build ]<br>v0.4.6.1에서 수정 확인됨</td>
         </tr></tbody>
     </table>
     </div>
@@ -9017,7 +9021,7 @@ function goToBts(btsNo) {
   document.getElementById('tab-bts').classList.add('active');
   document.querySelectorAll('.tab-btn').forEach(b => {
     b.classList.remove('active');
-    if (b.textContent.trim() === 'BTS') b.classList.add('active');
+    if (b.textContent.trim() === '버그 목록') b.classList.add('active');
   });
   document.querySelectorAll('#tab-bts tbody tr').forEach(row => {
     row.classList.remove('bts-highlight');
