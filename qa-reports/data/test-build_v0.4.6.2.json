@@ -1,0 +1,20 @@
+{
+  "key": "test-build_v0.4.6.2",
+  "build_type": "TEST 빌드",
+  "platform": "",
+  "version": "v0.4.6.2",
+  "report_path": "test-build\\v0.4.6.2.html",
+  "summary": {
+    "pass": 901,
+    "fail": 6,
+    "block": 12,
+    "na": 44,
+    "norun": 172,
+    "total": 1135,
+    "coverage": 98.04,
+    "critical_bugs": 2,
+    "major_bugs": 0,
+    "minor_bugs": 1,
+    "operability": "운영 불가"
+  }
+}
