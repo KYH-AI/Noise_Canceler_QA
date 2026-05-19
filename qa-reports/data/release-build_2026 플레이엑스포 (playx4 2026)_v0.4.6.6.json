@@ -1,0 +1,20 @@
+{
+  "key": "release-build_2026 플레이엑스포 (playx4 2026)_v0.4.6.6",
+  "build_type": "배포 빌드",
+  "platform": "2026 플레이엑스포 (PlayX4 2026)",
+  "version": "v0.4.6.6",
+  "report_path": "release-build\\2026 플레이엑스포 (playx4 2026)\\v0.4.6.6.html",
+  "summary": {
+    "pass": 773,
+    "fail": 3,
+    "block": 0,
+    "na": 370,
+    "norun": 0,
+    "total": 1146,
+    "coverage": 99.61,
+    "critical_bugs": 0,
+    "major_bugs": 0,
+    "minor_bugs": 2,
+    "operability": "운영 가능"
+  }
+}
