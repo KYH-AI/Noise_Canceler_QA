@@ -1,0 +1,21 @@
+{
+  "key": "test-build_v0.5.1.1.1",
+  "build_type": "TEST 빌드",
+  "platform": "",
+  "version": "v0.5.1.1.1",
+  "report_path": "test-build\\v0.5.1.1.1.html",
+  "summary": {
+    "pass": 1162,
+    "fail": 16,
+    "block": 2,
+    "na": 89,
+    "norun": 0,
+    "total": 1269,
+    "coverage": 98.47,
+    "critical_bugs": 0,
+    "major_bugs": 0,
+    "minor_bugs": 0,
+    "trivial_bugs": 3,
+    "operability": "조건부 가능"
+  }
+}
